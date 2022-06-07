@@ -7,7 +7,7 @@ A helper to make it easy to set yourself up for 'The Sims 4 but Every Room is a 
 
 - Clone the repo
 
-- Open up the `packs.txt` file and make sure there are `#` at the start of the each pack/kit name that you **do not own** (this excludes these packs from being chosen).
+- Open up the `packs.txt` file and make sure there is a `#` at the start of the each pack/kit name that you **do not own** (this excludes these packs from being chosen).
 
 - Navigate to the main folder in a Terminal app
 
