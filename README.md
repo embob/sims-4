@@ -20,7 +20,7 @@ A helper to make it easy to set yourself up for 'The Sims 4 but Every Room is a 
 
 ## Results
 
-A list of rooms that you are going to decorate, each assigned to a random pack that you own.
+A list of rooms that you are going to build, each assigned to a random pack that you own.
 
 eg.
 
