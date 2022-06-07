@@ -13,7 +13,9 @@ A helper to make it easy to set yourself up for 'The Sims 4 but Every Room is a 
 
 - Type`npm start`
 
-- Answer the prompted questions about what rooms you would like.
+- Answer the prompted questions (about how many of each room type you would like plus add any extra rooms to the list).
+
+- Profit!
 
 
 ## Results
