@@ -73,9 +73,7 @@ const askExtraRooms = (answers) => {
 
 const askQuestions = () => {
   return inquirer.prompt(questions).then(async (answers) => {
-    if (answers.exterior) {
-      answers.exterior = 1;
-    }
+    answers.exterior ? answers.exterior = 1 : delete answers.exterior;
     if (answers.extras) {
       const extraRoomsOld = await askExtraRooms(answers);
       answers = {...answers, ...extraRoomsOld};

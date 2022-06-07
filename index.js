@@ -27,6 +27,10 @@ async function checkRoomLength(roomList, shuffledPacks) {
   const roomCount = Object.values(roomList).reduce((acc, curr) => {
     return acc + parseInt(curr);
   }, 0);
+  if (roomCount === 0) {
+    console.log('There are 0 rooms to assign');
+    process.exit(1);
+  }
   if (roomCount > shuffledPacks.length) {
     await askContinue();
   }
@@ -35,6 +39,7 @@ async function checkRoomLength(roomList, shuffledPacks) {
 
 function processRooms(roomList, shuffledPacks) {
   const rooms = Object.entries(roomList);
+  console.log(rooms);
   return rooms.reduce((acc, next) => {
     const [ name, amount ] = next;
     const nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1);
@@ -56,6 +61,8 @@ function processRooms(roomList, shuffledPacks) {
 (async () => {
   const shuffledPacks = shuffle(setupData());
   const roomList = await askQuestions();
+  console.log("roomList", roomList);
+
   await checkRoomLength(roomList, shuffledPacks);
   console.log("\r\n");
   console.log(processRooms(roomList, shuffledPacks));
