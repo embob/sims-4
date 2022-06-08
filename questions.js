@@ -11,7 +11,7 @@ const rooms = [
 
 const roomQs = rooms.reduce((acc, next) => {
   const room = {
-    type: "input",
+    type: "number",
     name: next,
     message: `How many ${next}s?`,
     default() {
