@@ -79,6 +79,11 @@ const askQuestions = () => {
       answers = {...answers, ...extraRoomsOld};
     }
     delete answers.extras
+    for (const key in answers) {
+      if (answers[key] === '0') {
+        delete answers[key];
+      }
+    }
     return answers
   });
 };
