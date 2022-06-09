@@ -3,7 +3,7 @@ Get to Work
 Get Together
 City Living
 Cats & Dogs
-Seasons
+#Seasons
 #Get Famous
 #Island Living
 Discover University
@@ -16,7 +16,7 @@ Outdoor Retreat
 Spa Day
 Dine Out
 #Vampires
-Parenthood
+#Parenthood
 #Jungle Adventure
 #StrangerVille
 #Realm of Magic
@@ -42,7 +42,7 @@ Movie Hangout Stuff
 #My First Pet Stuff
 #Moschino Stuff
 Tiny Living Stuff
-Nifty Knitting Stuff
+#Nifty Knitting Stuff
 Paranormal Stuff
 
 ## Kits
@@ -56,6 +56,6 @@ Paranormal Stuff
 #Blooming Rooms Kit
 #Modern Menswear Kit
 #Carnaval Streetwear Kit
-Decor to the Max Kit
-Moonlight Chic Kit
+#Decor to the Max Kit
+#Moonlight Chic Kit
 #Little Campers Kit
