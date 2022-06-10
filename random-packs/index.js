@@ -1,9 +1,7 @@
 const { readFileSync } = require("fs");
 const { askQuestions, askContinue } = require("./questions");
 
-function filterOwnedPacks(value) {
-  return !value.startsWith("#");
-}
+const filterOwnedPacks = (value) =>  !value.startsWith("#");
 
 function shuffle(packs) {
   for (let i = packs.length - 1; i > 0; i--) {
@@ -18,21 +16,13 @@ function setupData() {
     .toString()
     .split("\n")
     .filter((a) => a)
-    .filter(filterOwnedPacks);
+    .filter(a => a && filterOwnedPacks);
 }
 
-async function checkRoomLength(roomList, shuffledPacks) {
-  const roomCount = Object.values(roomList).reduce((acc, curr) => {
-    return acc + curr;
-  }, 0);
-  if (roomCount === 0) {
-    console.log("There are 0 rooms to assign");
-    process.exit(1);
-  }
-  if (roomCount > shuffledPacks.length) {
-    await askContinue();
-  }
-  return;
+function checkRoomLength(roomList, shuffledPacks) {
+  const roomCount = Object.values(roomList).reduce((acc, curr) => acc + curr, 0);
+  if (roomCount === 0) throw new Error('There are 0 rooms to assign');
+  return roomCount > shuffledPacks.length;
 }
 
 function processRooms(roomList, shuffledPacks) {
@@ -45,7 +35,7 @@ function processRooms(roomList, shuffledPacks) {
       const roomsToAdd = [];
       for (let index = 1; index < roomAmount + 1; index++) {
         const room = roomAmount > 1 ? `${nameCapitalized} (${index})`: nameCapitalized;
-        const pack = shuffledPacks.length === 0 ? 'Base game' : shuffledPacks.splice(0, 1).toString();
+        const pack = shuffledPacks.length === 0 ? 'Base game' : shuffledPacks.splice(0, 1);
         roomsToAdd.push(`${room}: ${pack}`);
       }
       return [...acc, ...roomsToAdd];
@@ -54,9 +44,15 @@ function processRooms(roomList, shuffledPacks) {
 }
 
 (async () => {
-  const shuffledPacks = shuffle(setupData());
-  const roomList = await askQuestions();
-  await checkRoomLength(roomList, shuffledPacks);
-  console.log("\r\n");
-  console.log(processRooms(roomList, shuffledPacks));
+  try {
+    const shuffledPacks = shuffle(setupData());
+    const roomList = await askQuestions();
+    const continueQuestions = checkRoomLength(roomList, shuffledPacks);
+    if (continueQuestions) await askContinue();
+    console.log("\r\n");
+    console.log(processRooms(roomList, shuffledPacks));
+  } catch (error) {
+    console.log(error.message);
+    process.exit(1);
+  }
 })();
