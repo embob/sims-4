@@ -11,7 +11,7 @@ A helper to make it easy to set yourself up for 'The Sims 4 but Every Room is a 
 
 - Navigate to the main folder in a Terminal app
 
-- Type`npm start`
+- Type`npm run random-packs`
 
 - Answer the prompted questions (about how many of each room type you would like plus add any extra rooms to the list).
 
